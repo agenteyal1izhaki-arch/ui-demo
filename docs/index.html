@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,12 +7,34 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header><h1>UI Demo</h1></header>
+  <header>
+    <h1>UI Demo</h1>
+    <button id="themeToggle" aria-label="Toggle theme">🌙 Dark</button>
+  </header>
   <main>
-    <p id="status">Status: not fetched</p>
-    <button id="fetchBtn">Fetch Data</button>
-    <pre id="output" aria-live="polite"></pre>
+    <p id="status">Status: ready</p>
+
+    <section class="card">
+      <h2>GitHub API</h2>
+      <button id="fetchBtn">Fetch Repo Data</button>
+      <pre id="output" aria-live="polite"></pre>
+    </section>
+
+    <section class="card">
+      <h2>Click Counter</h2>
+      <p class="counter-display">Clicks: <span id="count">0</span></p>
+      <div class="btn-row">
+        <button id="incrementBtn">+ Increment</button>
+        <button id="resetBtn" class="secondary">Reset</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Live Clock</h2>
+      <p id="clock" class="clock">--:--:--</p>
+    </section>
   </main>
+
   <script src="app.js"></script>
 </body>
 </html>
