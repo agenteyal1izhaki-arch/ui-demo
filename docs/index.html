@@ -3,37 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UI Demo on GitHub Pages</title>
+  <title>UI Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>UI Demo</h1>
-    <button id="themeToggle" aria-label="Toggle theme">🌙 Dark</button>
-  </header>
-  <main>
-    <p id="status">Status: ready</p>
+  <!-- Ambient background blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
 
-    <section class="card">
-      <h2>GitHub API</h2>
-      <button id="fetchBtn">Fetch Repo Data</button>
-      <pre id="output" aria-live="polite"></pre>
-    </section>
-
-    <section class="card">
-      <h2>Click Counter</h2>
-      <p class="counter-display">Clicks: <span id="count">0</span></p>
-      <div class="btn-row">
-        <button id="incrementBtn">+ Increment</button>
-        <button id="resetBtn" class="secondary">Reset</button>
+  <div class="app">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="nav-logo">◆</span>
+        <span class="nav-title">UI Demo</span>
       </div>
+      <div class="nav-actions">
+        <span id="clock" class="nav-clock">--:--:--</span>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">GitHub Pages · Live Demo</div>
+      <h1 class="hero-title">Modern UI<br /><span class="gradient-text">Components</span></h1>
+      <p class="hero-sub">A clean, interactive demo deployed via GitHub Actions.</p>
     </section>
 
-    <section class="card">
-      <h2>Live Clock</h2>
-      <p id="clock" class="clock">--:--:--</p>
-    </section>
-  </main>
+    <!-- Cards grid -->
+    <div class="grid">
+
+      <!-- Counter card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🎯</div>
+          <div>
+            <h2 class="card-title">Counter</h2>
+            <p class="card-desc">Track click events in real-time</p>
+          </div>
+        </div>
+        <div class="counter-display">
+          <span id="count">0</span>
+          <span class="counter-label">clicks</span>
+        </div>
+        <div class="btn-row">
+          <button id="incrementBtn" class="btn btn-primary">+ Increment</button>
+          <button id="resetBtn" class="btn btn-ghost">Reset</button>
+        </div>
+      </div>
+
+      <!-- GitHub API card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">⚡</div>
+          <div>
+            <h2 class="card-title">GitHub API</h2>
+            <p class="card-desc">Live repo data fetch</p>
+          </div>
+        </div>
+        <button id="fetchBtn" class="btn btn-primary" style="margin-bottom:1rem">Fetch Repo Data</button>
+        <div id="fetchStatus" class="status-pill status-idle">Idle</div>
+        <pre id="output" aria-live="polite"></pre>
+      </div>
+
+      <!-- Stats card -->
+      <div class="card card-wide">
+        <div class="card-header">
+          <div class="card-icon">📊</div>
+          <div>
+            <h2 class="card-title">Session Stats</h2>
+            <p class="card-desc">Live metrics for this session</p>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-value" id="statClicks">0</span>
+            <span class="stat-label">Clicks</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="statFetches">0</span>
+            <span class="stat-label">API Calls</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="statUptime">0s</span>
+            <span class="stat-label">Uptime</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="statTheme">Dark</span>
+            <span class="stat-label">Theme</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      Built with ♥ · Deployed on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
+    </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
