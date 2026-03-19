@@ -1,0 +1,161 @@
+/* === Variables === */
+:root {
+  --bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text: #eee;
+  --subtext: #53d8fb;
+  --accent: linear-gradient(90deg, #e94560, #c2185b);
+  --accent-shadow: rgba(233, 69, 96, 0.4);
+  --pre-bg: rgba(0, 0, 0, 0.3);
+  --pre-text: #a8edea;
+  --pre-border: #53d8fb;
+  --secondary-bg: rgba(255,255,255,0.08);
+  --secondary-text: #ccc;
+}
+
+[data-theme="light"] {
+  --bg: linear-gradient(135deg, #e8eaf6 0%, #e3f2fd 50%, #bbdefb 100%);
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --text: #1a1a2e;
+  --subtext: #0f3460;
+  --pre-bg: rgba(0, 0, 0, 0.05);
+  --pre-text: #c2185b;
+  --pre-border: #0f3460;
+  --secondary-bg: rgba(0,0,0,0.08);
+  --secondary-text: #333;
+}
+
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: background 0.3s;
+}
+
+/* === Header === */
+header {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  background: linear-gradient(90deg, #e94560, #0f3460, #53d8fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* === Main === */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* === Cards === */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--subtext);
+  margin-bottom: 1rem;
+}
+
+/* === Status === */
+#status {
+  font-size: 0.85rem;
+  color: var(--subtext);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* === Buttons === */
+button {
+  padding: 0.65rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 15px var(--accent-shadow);
+}
+
+button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--accent-shadow); }
+button:active { transform: translateY(0); }
+
+button.secondary {
+  background: var(--secondary-bg);
+  color: var(--secondary-text);
+  box-shadow: none;
+}
+button.secondary:hover { box-shadow: none; opacity: 0.85; }
+
+#themeToggle {
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+}
+
+/* === Counter === */
+.counter-display {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* === Clock === */
+.clock {
+  font-size: 2.5rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 3px;
+  color: var(--subtext);
+  font-weight: 700;
+}
+
+/* === Output === */
+#output {
+  margin-top: 1.2rem;
+  background: var(--pre-bg);
+  border-left: 4px solid var(--pre-border);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--pre-text);
+  white-space: pre-wrap;
+  min-height: 2.5rem;
+  line-height: 1.6;
+}
